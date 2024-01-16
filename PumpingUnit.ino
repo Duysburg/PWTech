@@ -1,11 +1,13 @@
 class Pump {
   public:
+    
+    /// the pin the physical pump is connected to
+    
+    int PumpPin;
+
     Pump(int pumpPin) {
       this->PumpPin = pumpPin;
     }
-
-    /// the pin the physical pump is connected to
-    int PumpPin;
 
     void setPumpActivity(bool pumpActivity) {
       digitalWrite(PumpPin, pumpActivity ? HIGH : LOW);
