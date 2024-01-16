@@ -1,7 +1,7 @@
 
 //Pflanzenobjekt für indiv. Daten
 struct _Plant{
-  string pname;             //plant name
+  string name;             //plant name
   int optmoisture;          //optimal moisture
   int thresh;               //threshhold of moisture - should not be less
   Sensor sensor; 
