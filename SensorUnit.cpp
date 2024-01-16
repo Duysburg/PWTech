@@ -1,6 +1,4 @@
 
-
-
 //class definition
 struct _Sensor{
     
@@ -21,7 +19,6 @@ struct _Sensor{
 } Sensor;
 
   
-
 
 //
 //not implemented yet 
