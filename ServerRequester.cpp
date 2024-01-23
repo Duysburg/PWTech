@@ -1,6 +1,12 @@
 
 #include <ESP8266WiFi.h>
 
+/**
+ * @brief Class for handling server requests
+ * -
+ * This class handles requests to a server. It connects to the Wi-Fi network, 
+ * and makes requests to the server repeatedly.
+ */
 class ServerRequester {
     private:
         string _apiAdress;
@@ -8,6 +14,11 @@ class ServerRequester {
         const char* _password = "password of network";
 
     public:
+        /**
+         * @brief initializes the server requester
+         * 
+         * @param apiAdress the address of the api
+         */
         ServerRequester(string apiAdress) {
             // initalize variables
             _apiAdress = apiAdress;
@@ -29,6 +40,15 @@ class ServerRequester {
             Serial.println(WiFi.localIP());
         }
 
+        /**
+         * @brief Function for handling server requests
+         * -
+         * This function handles requests to a server. It connects to the Wi-Fi network, 
+         * and makes requests to the server repeatedly.
+         * 
+         * @param apiAdress the address of the api
+         * @return the processed response data from the server
+         */
         void requestServer() {
             while (true) {
                 // check if wifi is connected
