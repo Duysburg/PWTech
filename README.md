@@ -17,10 +17,11 @@ Plant Watering Tech - [Website](hpyGithub.github.io)
 ```mermaid
 classDiagram
 class Sensor{
-    +powerpin: int
+    -powerPin: int
+    -readingPin: int
     +actual_moisture: int
     +Sensor(int pumpPin)
-    +setMoistureSensor(): void
+    +moistureSensor(): int
 }
 class Plant{
     +name: String
