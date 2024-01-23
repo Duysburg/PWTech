@@ -1,5 +1,5 @@
 # PWTech
-Plant Watering Tech - [Website](hpyGithub.github.io)
+Plant Watering Tech - [Website](https://hpyGithub.github.io)
 
 ### Roadmap
 | file/component name | file type |
