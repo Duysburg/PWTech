@@ -4,8 +4,8 @@
 class ServerRequester {
     private:
         string _apiAdress;
-        const char* ssid    = "name of network";
-        const char* password = "password of network";
+        const char* _ssid    = "name of network";
+        const char* _password = "password of network";
 
     public:
         ServerRequester(string apiAdress) {
@@ -15,9 +15,9 @@ class ServerRequester {
 
             // connect to wlan
             Serial.print("Connecting to ");
-            Serial.println(this->ssid);
+            Serial.println(_ssid);
 
-            WiFi.begin(this->ssid, this->password);
+            WiFi.begin(_ssid, _password);
 
             while (WiFi.status() != WL_CONNECTED) {
                 delay(500);
@@ -42,7 +42,7 @@ class ServerRequester {
                 }
 
                 HTTPClient http;
-                http.begin(this->_apiAdress);
+                http.begin(_apiAdress);
                 int httpSuccessCode = http.Get();
 
                 if (httpSuccessCode <= 0)
