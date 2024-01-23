@@ -17,32 +17,37 @@ Plant Watering Tech - [Website](hpyGithub.github.io)
 ```mermaid
 classDiagram
 class Sensor{
-    int powerpin
-    int actual_moisture
-    Sensor(int pumpPin)
-    void setMoistureSensor()
+    +powerpin: int
+    +actual_moisture: int
+    +Sensor(int pumpPin)
+    +setMoistureSensor(): void
 }
 class Plant{
-    String name
-    int optmoisture
-    int thresh
-    Sensor sensor
-    Pump pump
+    +name: String
+    +optmoisture: int
+    +thresh: int
+    +sensor: Sensor 
+    +pump: Pump 
 }
 class Pump{
-    int pumpPin
-    Pump(int pumpPin)
+    +pumpPin: int 
+    +Pump(int pumpPin)
+    +setPumpActivity(bool pumpActivity): void
+    +pumpForTime(unsigned long timeMillis): void
 }
-Plant <|-- _Sensor
-Plant *-- Pump
+class ServerRequester{
+    -_apiAdress: string 
+    -_ssid: char* 
+    -_password: char* 
+    +ServerRequester(string apiAdress)
+    +void requestServer()
+}
+class RobotBrain{
+    -mainPump: Pump
+}
 
-class ServerRequester {
-    private:
-        string _apiAdress
-        const char* _ssid
-        const char* _password
-    public:
-        ServerRequester(string apiAdress)
-        void requestServer()
-}
+Plant "1" --o "1" Sensor
+Plant "1" --o "1" Pump
+
+RobotBrain "1" --o "1..*" Pump
 ```
