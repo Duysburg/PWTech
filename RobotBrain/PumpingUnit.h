@@ -1,3 +1,4 @@
+#include "Arduino.h"
 class Pump {
   public:
     
@@ -6,6 +7,7 @@ class Pump {
 
     Pump(int pumpPin) {
       PumpPin = pumpPin;
+      pinMode(PumpPin, OUTPUT);
     }
 
     /**
@@ -27,7 +29,7 @@ class Pump {
 
       // wait until time the program should pump has run out
       while (millis() - startTime < timeMillis) {
-        // wait
+        Serial.println("pumping...");
       }
 
       // stop pumping
