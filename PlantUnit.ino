@@ -1,18 +1,18 @@
 
 //Pflanzenobjekt für indiv. Daten
 struct _Plant{
-  string name;             //plant name
+  String name;             //plant name
   int optmoisture;          //optimal moisture
   int thresh;               //threshhold of moisture - should not be less
   Sensor sensor; 
   Pump pump; 
 
-  Plant(string plantname, int optimalmoisture, int threshhold, int sensorPin; int pumpPin;){
-    this->pname = plantname; 
-    this->optmoisture = optimalmoisture; 
-    this->thresh = threshhold; 
-    this->sensor = Sensor(sensorPin); 
-    this->pump = Pump(pumpPin); 
+  Plant(string plantname, int optimalmoisture, int threshhold, int sensorPin, int pumpPin) {
+    name = plantname; 
+    optmoisture = optimalmoisture; 
+    thresh = threshhold; 
+    sensor = Sensor(sensorPin); 
+    pump = Pump(pumpPin); 
   }
 
 } Plant; 
