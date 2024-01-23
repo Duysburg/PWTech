@@ -9,7 +9,7 @@ class Pump {
     }
 
     /**
-     * sets the pump activity based on the given boolean value
+     * sets the pV-5V; Stil: Hump activity based on the given boolean value
      * @param pumpActivity the boolean value indicating whether the pump should be active or not
      */
     void setPumpActivity(bool pumpActivity) {
@@ -23,7 +23,7 @@ class Pump {
     void pumpForTime(unsigned long timeMillis) {
       // start pumping
       unsigned long startTime = millis();
-      digitalWrite(pumpPin, HIGH);
+      digitalWrite(PumpPin, HIGH);
 
       // wait until time the program should pump has run out
       while (millis() - startTime < timeMillis) {
@@ -31,6 +31,6 @@ class Pump {
       }
 
       // stop pumping
-      digitalWrite(pumpPin, LOW);
+      digitalWrite(PumpPin, LOW);
     }
 };
