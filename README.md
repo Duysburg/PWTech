@@ -35,6 +35,9 @@ class Pump{
     +setPumpActivity(bool pumpActivity): void
     +pumpForTime(unsigned long timeMillis): void
 }
+class RobotBrain{
+    -mainPump: Pump
+}
 class ServerRequester{
     -_apiAdress: string 
     -_ssid: char* 
@@ -42,12 +45,9 @@ class ServerRequester{
     +ServerRequester(string apiAdress)
     +void requestServer()
 }
-class RobotBrain{
-    -mainPump: Pump
-}
 
 Plant "1" --o "1" Sensor
 Plant "1" --o "1" Pump
 
-RobotBrain "1" --o "1..*" Pump
+RobotBrain "1" --> "1..*" Pump
 ```
