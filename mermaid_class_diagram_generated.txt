@@ -1,0 +1,24 @@
+classDiagram
+	class ServerRequester {
+		-_apiAdress : string
+		ServerRequester(string apiAdress)
+		+requestServer() : void
+	}
+	class Plant {
+		+sensor : Sensor
+		+pump : Pump
+		Plant(string plantname, int optimalmoisture, int threshhold, int sensorPin, int pumpPin)
+	}
+	class Pump {
+		+PumpPin : int
+		Pump(int pumpPin)
+		+setPumpActivity(bool pumpActivity) : void
+		+pumpForTime(unsigned long timeMillis) : void
+		+startTime : long
+	}
+	class Sensor {
+		Sensor(int powerP, int readP)
+		+moistureSensor() : int
+	}
+	Plant --> Sensor
+	Plant --> Pump
