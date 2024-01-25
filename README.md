@@ -21,7 +21,7 @@ classDiagram
 		-_ssid : String
 		-_password : String
 		ServerRequester(string apiAdress)
-		+requestServer() : void
+		+requestServer() void
 	}
 	class Plant {
 		+name : String
@@ -35,21 +35,21 @@ classDiagram
 	class Pump {
 		+PumpPin : int
 		Pump(int pumpPin)
-		+setPumpActivity(bool pumpActivity) : void
-		+pumpForTime(unsigned long timeMillis) : void
+		+setPumpActivity(bool pumpActivity) void
+		+pumpForTime(unsigned long timeMillis) void
 		+startTime : long
 	}
 	class RobotBrain {
 		RobotBrain(Pump[] pumpList, unsigned long[] durationList)
-		+requestWatering(Pump pump, unsigned long duration) : void
-		+TEST_Pump(int pumpPin) : void
+		+requestWatering(Pump pump, unsigned long duration) void
+		+TEST_Pump(int pumpPin) void
 		+testPump : Pump
-		+TEST_Sensor(int powerPin, int sensorPin) : void
+		+TEST_Sensor(int powerPin, int sensorPin) void
 		+testSensor : Sensor
 	}
 	class Sensor {
 		Sensor(int powerP, int readP)
-		+moistureSensor() : int
+		+moistureSensor() int
 	}
 	Plant "1..*" --> "1" RobotBrain
 	Plant "1" --o "1" Sensor
