@@ -5,6 +5,10 @@ class Pump {
     /// the pin the physical pump is connected to
     int PumpPin;
 
+    /**
+     *  @brief makes a new PumpObject
+     *  @param pumpPin the pin this pump is connected to
+     */
     Pump(int pumpPin) {
       PumpPin = pumpPin;
       pinMode(PumpPin, OUTPUT);
