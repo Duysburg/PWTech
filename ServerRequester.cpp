@@ -9,9 +9,9 @@
  */
 class ServerRequester {
     private:
-        string _apiAdress;
-        const char* _ssid    = "name of network";
-        const char* _password = "password of network";
+        String _apiAdress;
+        String _ssid    = "name of network";
+        String _password = "password of network";
 
     public:
         /**
