@@ -131,7 +131,7 @@ with open(os.path.join(current_path, "mermaid_class_diagram_generated.txt"), "w"
                         continue
                     
                     # Check for variables
-                    variable_regex = re.search(r"(?P<variableType>[a-zA-Z0-9_]+)\*?\&?\s+(?P<variableName>[a-zA-Z0-9_]+)\s*(;|\s*=.*;)", line)                    
+                    variable_regex = re.search(r"(?P<variableType>[a-zA-Z0-9_]+\*?\&?)\s+(?P<variableName>[a-zA-Z0-9_]+)\s*(;|\s*=.*;)", line)                    
                     if variable_regex != None:
                         variable_type = variable_regex.group("variableType")
                         variable_name = variable_regex.group("variableName")
@@ -152,4 +152,4 @@ with open(os.path.join(current_path, "mermaid_class_diagram_generated.txt"), "w"
         for variable_name in variable_uses[class_name]:
             # check if variable is already in the class diagram
             if variable_name in variable_uses:
-                write_file.write(f"\n\t{class_name} --> {variable_name}")
+                write_file.write(f'\n\t{class_name} "" --> "" {variable_name}')
