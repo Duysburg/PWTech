@@ -1,3 +1,4 @@
+#include "RobotBrainUnit.h"
 // ------------------------------------------------------------------------------
 // ACHTUNG: Ich hab den Inhalt der loop()-Funktion in TEST_Sensor() in RobotBrain.ino verschoben damit der Sensor getestet werden kann.
 // Ansonsten hab ich am code nichts geändert. :)
@@ -16,10 +17,14 @@ class Sensor{
     Sensor(int powerP, int readP) {
       this->powerPin = powerP;
       this->readingPin = readP;
-      this->actual_moisture = moistureSensor();
+      this->actual_moisture = measureMoisture();
     }
 
-    int moistureSensor() {
+    /**
+     * @brief measure the current moisture level
+     * @return current moisture level
+    */
+    int measureMoisture() {
         //sensor measuring
         digitalWrite(powerPin, HIGH);
         delay(10);
@@ -40,7 +45,7 @@ class Sensor{
 //LightFunction - not implemented
 /*
 void lightSwitch(int sensor, Plant p){
-  if(sensor > p->thresh){
+  if(sensor > p->moistureThreshhold){
     digitalWrite(redLED, LOW);
     digitalWrite(greenLED, HIGH);
   }else{

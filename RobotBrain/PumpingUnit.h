@@ -1,5 +1,6 @@
-#include "Arduino.h"
-class Pump {
+#include "RobotBrainUnit.h"
+
+class WaterPump {
   public:
     
     /// the pin the physical pump is connected to
@@ -9,7 +10,7 @@ class Pump {
      *  @brief makes a new PumpObject
      *  @param pumpPin the pin this pump is connected to
      */
-    Pump(int pumpPin) {
+    WaterPump(int pumpPin) {
       PumpPin = pumpPin;
       pinMode(PumpPin, OUTPUT);
     }
