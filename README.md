@@ -31,6 +31,8 @@ classDiagram
 		+sensor : Sensor
 		+pump : Pump
 		Plant(RobotBrain robotBrain, String plantname, int optimalmoisture, int threshhold, int sensorPin, int pumpPin)
+		-checkSensor(): bool
+		-blinkLed(): void
 	}
 	class Pump {
 		+PumpPin : int
