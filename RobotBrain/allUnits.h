@@ -1,5 +1,5 @@
-#pragma  once
 // auto generated file
+#pragma once
 
 class WaterPump {
   public:
@@ -42,6 +42,7 @@ class WaterPump {
       digitalWrite(PumpPin, LOW);
     }
 };
+#pragma once
 // ------------------------------------------------------------------------------
 // ACHTUNG: Ich hab den Inhalt der loop()-Funktion in TEST_Sensor() in RobotBrain.ino verschoben damit der Sensor getestet werden kann.
 // Ansonsten hab ich am code nichts geändert. :)
@@ -114,6 +115,7 @@ void lightSwitch(int sensor, Plant p){
 //   delay(1000);
 
 // }
+#pragma once
 #include "Arduino.h"
 
 class RobotBrain {
@@ -135,6 +137,7 @@ class RobotBrain {
     requestingPlant.currentlyBeeingWatered = false;
   }
 };
+#pragma once
 
 class Plant {
 private:

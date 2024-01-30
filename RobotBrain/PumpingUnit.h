@@ -1,5 +1,4 @@
 #pragma once
-#include "RobotBrainUnit.h"
 
 class WaterPump {
   public:
@@ -17,7 +16,7 @@ class WaterPump {
     }
 
     /**
-     * sets the pV-5V; Stil: Hump activity based on the given boolean value
+     * sets the pump activity based on the given boolean value
      * @param pumpActivity the boolean value indicating whether the pump should be active or not
      */
     void setPumpActivity(bool pumpActivity) {

@@ -7,35 +7,79 @@ classDiagram
 		+requestServer() : void
 	}
 	class Plant {
-		+name : String
-		+optmoisture : int
-		+thresh : int
-		+_robotBrain : RobotBrain
-		+sensor : Sensor
-		+pump : Pump
-		Plant(RobotBrain robotBrain, String plantname, int optimalmoisture, int threshhold, int sensorPin, int pumpPin)
+		-plantName : String
+		-optimalMoisture : int
+		-moistureThreshhold : int
+		-wateringDuration : int
+		-robotBrain : RobotBrain
+		-sensor : Sensor
+		-pump : WaterPump
+		+currentlyBeeingWatered : bool
 	}
-	class Pump {
+	class WaterPump {
 		+PumpPin : int
-		Pump(int pumpPin)
+		WaterPump(int pumpPin)
 		+setPumpActivity(bool pumpActivity) : void
 		+pumpForTime(unsigned long timeMillis) : void
 		+startTime : long
 	}
+	class Sensor {
+		Sensor(int powerP, int readP)
+		+measureMoisture() : int
+	}
 	class RobotBrain {
-		RobotBrain(Pump[] pumpList, unsigned long[] durationList)
-		+requestWatering(Pump pump, unsigned long duration) : void
-		+TEST_Pump(int pumpPin) : void
-		+testPump : Pump
-		+TEST_Sensor(int powerPin, int sensorPin) : void
-		+testSensor : Sensor
+		RobotBrain()
+		+requestWatering(WaterPump pump, unsigned long duration) : void
+	}
+	class Plant {
+		-plantName : String
+		-optimalMoisture : int
+		-moistureThreshhold : int
+		-wateringDuration : int
+		-robotBrain : RobotBrain
+		-sensor : Sensor
+		-pump : WaterPump
+		-checkSensor() : bool
+		-measuredMoisture : int
+		-isAcceptable : bool
+		-isAcceptable : return
+		-blinkLed(long durationInMillis) : void
+		+currentlyBeeingWatered : bool
+		Plant(RobotBrain robotBrain, String plantName, int wateringDuration, int optimalMoisture, int hreshhold, int sensorPin, int pumpPin)
+		+updatePlant() : void
+	}
+	class WaterPump {
+		+PumpPin : int
+		WaterPump(int pumpPin)
+		+setPumpActivity(bool pumpActivity) : void
+		+pumpForTime(unsigned long timeMillis) : void
+		+startTime : long
 	}
 	class Sensor {
 		Sensor(int powerP, int readP)
-		+moistureSensor() : int
+		+measureMoisture() : int
+	}
+	class RobotBrain {
+		RobotBrain()
+		+requestWatering(WaterPump pump, unsigned long duration) : void
+	}
+	class Plant {
+		-plantName : String
+		-optimalMoisture : int
+		-moistureThreshhold : int
+		-wateringDuration : int
+		-robotBrain : RobotBrain
+		-sensor : Sensor
+		-pump : WaterPump
+		-checkSensor() : bool
+		-measuredMoisture : int
+		-isAcceptable : bool
+		-isAcceptable : return
+		-blinkLed(long durationInMillis) : void
+		+currentlyBeeingWatered : bool
+		Plant(RobotBrain robotBrain, String plantName, int wateringDuration, int optimalMoisture, int hreshhold, int sensorPin, int pumpPin)
+		+updatePlant() : void
 	}
 	Plant "" --> "" RobotBrain
 	Plant "" --> "" Sensor
-	Plant "" --> "" Pump
-	RobotBrain "" --> "" Pump
-	RobotBrain "" --> "" Sensor
+	Plant "" --> "" WaterPump
