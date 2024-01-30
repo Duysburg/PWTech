@@ -1,14 +1,11 @@
 # PWTech
 Plant Watering Tech - [Website](https://hpyGithub.github.io)
 
-### Roadmap
-| file/component name | file type |
-|------|-----------|
-| Pumping Unit | Header |
-| Sensor Unit | Header |
-| Plant Header | Header |
-| Robot Brain | Arduino-Datei |
-| Main Server | Header |
+### Moisture Measurements
+| Zustand | Messwert |
+| --- | --- |
+| trocken | 485 |
+| nass | 204 |
 
 ***
 ### class diagram of the code base
