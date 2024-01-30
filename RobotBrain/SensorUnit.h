@@ -1,3 +1,4 @@
+#pragma once
 #include "RobotBrainUnit.h"
 // ------------------------------------------------------------------------------
 // ACHTUNG: Ich hab den Inhalt der loop()-Funktion in TEST_Sensor() in RobotBrain.ino verschoben damit der Sensor getestet werden kann.
