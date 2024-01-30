@@ -10,6 +10,8 @@ class Plant {
         int optimalMoisture;
         int moistureThreshhold;
         int wateringDuration;
+        bool checkSensor();
+        void blinkLed(long durationInMillis);
     public:
         bool currentlyBeeingWatered = false;
         void updatePlant();
@@ -26,4 +28,4 @@ class Plant {
 //     Plant(RobotBrain robotBrain, String plantName, int wateringDuration, int optimalMoisture, int hreshhold, int sensorPin, int pumpPin);
 // };
 
-#endif // PLANT_H
+#endif PLANT_H
