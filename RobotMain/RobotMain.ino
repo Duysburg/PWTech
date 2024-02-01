@@ -1,13 +1,18 @@
+#include "RobotMain.h"
 #include "Plant.h"
 #include "Pump.h"
 #include "Sensor.h"
 
+Plant testPlant;
 void setup() {
     Serial.begin(9600);
-    Plant testPlant = Plant("hi :)", 1, 1, 1, 1, 1);
+
+    RobotBrain robotBrain = RobotBrain();
+    testPlant = Plant(robotBrain, "hi :)", 1, 1, 1, 1);
 }
 
 void loop() {
+  testPlant.updatePlant();
 }
 
 /**
