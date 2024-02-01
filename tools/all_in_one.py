@@ -4,7 +4,8 @@ import re
 
 # Define the file extensions to search for
 extensions = [".h"]
-current_path = os.path.dirname(__file__)
+current_path = os.path.dirname(os.path.dirname(__file__))
+print(current_path)
 
 # Functions
 def begins_with(begin_str, line_str) -> bool:

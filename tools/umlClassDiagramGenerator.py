@@ -3,7 +3,7 @@ import re
 
 # Define the file extensions to search for
 extensions = [".ino", ".h", ".cpp"]
-current_path = os.path.dirname(__file__)
+current_path = os.path.dirname(os.path.dirname(__file__))
 is_first_class = True
 variable_uses = {}
 
