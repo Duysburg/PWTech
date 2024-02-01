@@ -1,7 +1,4 @@
 #include "Plant.h"
-#include "Arduino.h"
-#include "Sensor.h"
-#include "Pump.h"
 
 /**
  * @brief This function checks the measured moisture value from the sensor and returns a boolean value based on whether the measured value is within the acceptable range.

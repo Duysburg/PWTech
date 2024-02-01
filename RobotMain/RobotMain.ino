@@ -3,12 +3,11 @@
 #include "Pump.h"
 #include "Sensor.h"
 
-Plant testPlant;
+RobotBrain robotBrain = RobotBrain();
+Pump plantPump = Pump(1);
+Plant testPlant = Plant(robotBrain, plantPump, "hi :)", 1, 1, 1, 1);
 void setup() {
     Serial.begin(9600);
-
-    RobotBrain robotBrain = RobotBrain();
-    testPlant = Plant(robotBrain, "hi :)", 1, 1, 1, 1);
 }
 
 void loop() {

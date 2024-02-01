@@ -13,13 +13,16 @@ class Plant {
         int optimalMoisture;
         int moistureThreshhold;
         int wateringDuration;
-        RobotBrain robotBrain;
-        Sensor sensor;
-        Pump pump;
+
+        RobotBrain robotBrain = RobotBrain();
+        Sensor sensor = Sensor(0);
+        Pump pump = Pump(1);
+
         bool checkSensor();
         void blinkLed(int durationInMillis);
     public:
         bool currentlyBeeingWatered = false;
+
         void updatePlant();
         Plant(RobotBrain robotBrain, Pump pump, String plantName, int wateringDuration, int optimalMoisture, int threshhold, int sensorPin);
 };
