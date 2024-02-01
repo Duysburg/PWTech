@@ -1,7 +1,9 @@
 #ifndef PLANT_H
 #define PLANT_H
 #include "Arduino.h"
+#include "RobotMain.h"
 #include "Sensor.h"
+#include "Pump.h"
 
 
 /// @brief plant object to manage the plant
@@ -11,23 +13,15 @@ class Plant {
         int optimalMoisture;
         int moistureThreshhold;
         int wateringDuration;
-        // Sensor sensor;
+        RobotBrain robotBrain;
+        Sensor sensor;
+        Pump pump;
         bool checkSensor();
         void blinkLed(int durationInMillis);
     public:
         bool currentlyBeeingWatered = false;
         void updatePlant();
-        Plant(String plantName, int wateringDuration, int optimalMoisture, int threshhold, int sensorPin, int pumpPin);
+        Plant(RobotBrain robotBrain, Pump pump, String plantName, int wateringDuration, int optimalMoisture, int threshhold, int sensorPin);
 };
-// class Plant {
-// private:
-//     RobotBrain robotBrain;
-//     Sensor sensor;
-//     WaterPump pump; 
-
-// public:
-
-//     Plant(RobotBrain robotBrain, String plantName, int wateringDuration, int optimalMoisture, int hreshhold, int sensorPin, int pumpPin);
-// };
 
 #endif PLANT_H

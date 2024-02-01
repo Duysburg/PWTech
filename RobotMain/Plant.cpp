@@ -1,6 +1,7 @@
 #include "Plant.h"
 #include "Arduino.h"
 #include "Sensor.h"
+#include "Pump.h"
 
 /**
  * @brief This function checks the measured moisture value from the sensor and returns a boolean value based on whether the measured value is within the acceptable range.
@@ -8,13 +9,15 @@
  *
  * @return true if the measured moisture value is within the acceptable range, false otherwise.
  */
-Plant::Plant(String plantName, int wateringDuration, int optimalMoisture, int threshhold, int sensorPin, int pumpPin)
+Plant::Plant(RobotBrain robotBrain, Pump pump, String plantName, int wateringDuration, int optimalMoisture, int threshhold, int sensorPin)
 {
+    this->robotBrain = robotBrain;
     this->plantName = plantName;
     this->wateringDuration = wateringDuration;
     this->optimalMoisture = optimalMoisture;
     this->moistureThreshhold = moistureThreshhold;
-    // this->sensor = Sensor(sensorPin);
+    this->sensor = Sensor(sensorPin);
+    this->pump = pump;
 }
 
 /**
@@ -58,6 +61,6 @@ void Plant::updatePlant()
   if (!currentlyBeeingWatered && checkSensor())
   {
     currentlyBeeingWatered = true;
-    // robotBrain.requestWatering(this, pump, wateringDuration);
+    robotBrain.requestWatering(pump, wateringDuration);
   }
 }
