@@ -104,7 +104,7 @@ with open(os.path.join(writing_path, "mermaid_class_diagram_generated.txt"), "w"
                         print(f"method: {method_regex.group('name')}({method_regex.group('parameters')}) : {method_regex.group('type')}")
                     
                     # detect constructors
-                    constructor_regex = re.search(re.escape(current_class_struct) + r"\s*\((?P<constructorParam>.*)\)", line)
+                    constructor_regex = re.search(r"^\s*" + re.escape(current_class_struct) + r"\s*\((?P<constructorParam>.*)\)", line)
                     if constructor_regex != None:
                         # write constructor to file
                         write_file.write(f"\t\t{current_class_struct}({constructor_regex.group('constructorParam')})\n")
