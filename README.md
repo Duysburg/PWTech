@@ -30,9 +30,7 @@ classDiagram
 		-blinkLed(int durationInMillis) void
 		+currentlyBeingWatered : bool
 		+updatePlant() void
-		Plant()
 		Plant(RobotBrain* robotBrain, String plantName, int wateringDuration, int optimalMoisture, int threshhold, int sensorPin)
-		Plant()
 	}
 	class Sensor {
 		-readingPin : int
@@ -43,7 +41,6 @@ classDiagram
 		+pump : *Pump
 		+currentlyWatering : bool
 		RobotBrain(int pumpPin)
-		RobotBrain()
 		+requestWatering(unsigned long duration) void
 	}
 	Plant "1..*" --> "1" RobotBrain
