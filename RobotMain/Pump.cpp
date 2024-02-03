@@ -33,7 +33,7 @@ void Pump::pumpForTime(unsigned long pumpTimeMillis)
     // wait until time the program should pump has run out
     while (millis() - startTime < pumpTimeMillis)
     {
-        Serial.println("pumping...");
+        Serial.print("pumping..."); // for debugging
     }
 
     // stop pumping

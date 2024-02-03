@@ -11,11 +11,12 @@ Sensor::Sensor(int readingPin)
 }
 
 /**
- * @brief Measure the current moisture level
+ * @brief measures the moisture value at this sensor's reading pin
  * 
- * @return the current moisture level
+ * @return the measured moisture value 
  */
 int Sensor::measureMoisture()
 {
+    Serial.println("sensor: measuring moisture: " + String(analogRead(readingPin))); // for debugging
     return analogRead(readingPin);
 }
