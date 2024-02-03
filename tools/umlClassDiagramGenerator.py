@@ -3,7 +3,11 @@ import re
 
 # Define the file extensions to search for
 extensions = [".ino", ".h", ".cpp"]
-current_path = os.path.dirname(os.path.dirname(__file__))
+
+searching_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "RobotMain")
+writing_path = os.path.dirname(__file__)
+print(searching_path)
+
 is_first_class = True
 variable_uses = {}
 
@@ -11,11 +15,12 @@ variable_uses = {}
 def begins_with(begin_str, line_str) -> bool:
     return re.search(r"\s*" + re.escape(begin_str), line_str)!= None
 
-with open(os.path.join(current_path, "mermaid_class_diagram_generated.txt"), "w") as write_file:
+# Main program
+with open(os.path.join(writing_path, "mermaid_class_diagram_generated.txt"), "w") as write_file:
     write_file.write("classDiagram\n")
 
     # Recursively search for files with the given extensions
-    for root, dirs, files in os.walk(current_path):
+    for root, dirs, files in os.walk(searching_path):
         for name in files:
             if any(name.endswith(ext) for ext in extensions):
                 # important code structures to be remembered over multiple lines
