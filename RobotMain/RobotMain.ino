@@ -4,7 +4,7 @@
 #include "Sensor.h"
 
 RobotBrain robotBrain(1);
-Plant testPlant(&robotBrain, &plantPump, "hi :)", 1, 1, 1, 1);
+Plant testPlant(&robotBrain, "hi :)", 1, 1, 1, 1);
 void setup() {
     Serial.begin(9600);
 

@@ -10,16 +10,16 @@
 class Plant {
     private:
         String plantName;
-        int optimalMoisture;
-        int moistureThreshhold;
-        int wateringDuration;
 
         RobotBrain* robotBrain;
         Sensor* sensor;
 
         bool checkSensor();
-        void blinkLed(int durationInMillis);
     public:
+        int optimalMoisture;
+        int moistureThreshhold;
+        int wateringDuration;
+
         bool currentlyBeingWatered = false;
 
         void updatePlant();
