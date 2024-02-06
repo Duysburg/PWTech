@@ -52,3 +52,7 @@ classDiagram
 	Plant "1" --o "1" Sensor
 	RobotBrain "1" --o "1..*" Pump
 ```
+
+### Herausforderungen im Projekt
+- Arbeiten mit Elektronik und Sand, Wasser
+- cpp Pointer
